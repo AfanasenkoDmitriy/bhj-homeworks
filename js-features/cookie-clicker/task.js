@@ -1,7 +1,3 @@
-// let clicker = document.getElementsByClassName('clicker');
-// let counter = document.getElementById('clicker__counter');
-
-
 let imgElement = document.getElementById('cookie');
 let counterElement = document.getElementById('clicker__counter');
 let clickCount = 0;
