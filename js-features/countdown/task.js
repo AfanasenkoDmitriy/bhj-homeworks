@@ -1,7 +1,7 @@
 const addText = function () {
-  const status = document.getElementById("timer");
-  status.textContent--;
-  if (status.textContent <= 0) {
+  const timer = document.getElementById("timer");
+  timer.textContent--;
+  if (timer.textContent <= 0) {
     alert("«Вы победили в конкурсе!»");
   }
 };
