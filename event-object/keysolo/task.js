@@ -17,13 +17,31 @@ class Game {
   }
 
   registerEvents() {
-    let symbols = document.querySelectorAll(".symbol");
-    let userSymbol = "";
+    let userSymbol;
+    let current = this;
 
-    window.addEventListener("keypress", (event) => {
-      userSymbol = event.key;
-    });
+    function setInputedSymbol() {
+      let symbol = current.currentSymbol.textContent.toUpperCase();
+      userSymbol = String.fromCharCode(event.keyCode);
+
+      if (symbol == userSymbol) {
+        current.success();
+      } else {
+        current.fail();
+      }
+    }
+
+    document.addEventListener("keydown", setInputedSymbol);
   }
+
+  // window.addEventListener('keypress', (event) => {
+  //       userSymbol = event.kode;
+  //     })
+  //     if (symbol.textContent === userSymbol) {
+  //       this.success();
+  //     } else {
+  //       this.fail();
+  //     }
 
   /*
       TODO:
