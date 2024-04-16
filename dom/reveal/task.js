@@ -1,5 +1,12 @@
-const reveal = document.getElementsByClassName(".reveal");
+const reveal = Array.from(document.getElementsByClassName("reveal"));
 
+reveal.forEach((e) => {
+  document.addEventListener("scroll", (el) => {
+    if (isVisible(...reveal)) {
+      e.classList.add("reveal_active");
+    }
+  });
+});
 function isVisible(el) {
   const { top, bottom } = el.getBoundingClientRect();
 
@@ -12,12 +19,3 @@ function isVisible(el) {
   el.classList.add("reveal_active");
   return true;
 }
-setInterval(() => {
-  console.log(isVisible(reveal));
-}, 1000);
-
-// document.addEventListener("scroll", (e) => {
-//   if (isVisible(reveal)) {
-//     e.classList.add("reveal_active");
-//   }
-// });
