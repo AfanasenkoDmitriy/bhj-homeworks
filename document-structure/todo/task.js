@@ -11,20 +11,18 @@ btnAdd.addEventListener("click", (event) => {
 
     elem.innerHTML = `
                 <div class="task__title">
-                       ${input.value}
+                       ${input.value.trim()}
                        </div>
                        <a href="#" class="task__remove">&times;</a>
             `;
     taskList.append(elem);
   }
   input.value = "";
+  console.log(taskList);
 });
 
-if (remove) {
-    remove.addEventListener("click", (e) => {
-        e.preventDefault();
-        const target = e.target;
-        target.remove();
-    });
-}
-
+taskList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("task__remove")) {
+    event.target.parentNode.remove();
+  }
+});
